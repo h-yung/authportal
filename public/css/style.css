@@ -1,0 +1,233 @@
+/* Elements and baseline ================= */
+
+:root {
+    --font-default: Arial, Helvetica, sans-serif;
+    --font-standout: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* skews red */
+    --color-light: 244, 244, 244;
+    --color-lightest: 255, 255, 255;
+    --color-neonyellow: 255,255,0;
+    --color-umber: 115, 41, 41;
+
+    /* skews blue */
+    --color-dark: 49,49,49;
+    --color-darkest: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bkg: rgb(var(--color-lightest));
+        --color-top: rgb(var(--color-darkest));
+        --color-invert: rgb(var(--color-light));
+        --color-mid-ground: rgb(var(--color-dark));
+        --color-highlight: rgb(var(--color-neonyellow));
+        --color-accent: rgb(var(--color-umber));
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bkg: rgb(var(--color-dark));
+        --color-top: rgb(var(--color-lightest));
+        --color-invert: rgb(var(--color-darkest));
+    }
+}
+
+html {
+    font-size: 62.5%;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-default);
+    background: var(--color-bkg);
+    color: var(--color-top);
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(var(--color-highlight));
+}
+
+a:hover {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+p {
+    line-height: 1.5em;
+}
+
+ul {
+    list-style: none;
+}
+
+
+h1,
+h2 {
+    font-family: var(--font-standout);
+    letter-spacing: 0.2em;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--color-mid-ground);
+    transition: all 0.4s ease-in 0s;
+}
+
+.btn__secondary {
+    border: 1px solid var(--color-bkg);
+    filter:brightness(1.5);
+    color: var(--color-invert);
+}
+
+.btn__tertiary {
+    background: var(--color-invert);
+    font-size: 1.6rem;
+    border: 1px solid var(--color-top);
+    width: fit-content;
+}
+
+/* special properties */
+.invert {
+    color: var(--color-invert);
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
+
+/* Modules ================= */
+
+.container__toplevel {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+}
+
+.container__toplevel.header {
+    justify-content: space-between;
+}
+
+.section__feat {
+    width: 50%;
+    height: 100%;
+    padding: 4rem;
+    background:  center/cover no-repeat url('../header_pexels-james-lee-2017021.jpg');
+    overflow: hidden;
+}
+
+.Header__titles {
+    writing-mode: vertical-rl;
+    max-height: 80vh;
+}
+
+
+.block__accent {
+    background: var(--color-mid-ground);
+    padding: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.section__cta {
+    padding: 4rem 4rem 20% 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.nav__main {
+    display: flex;
+    font-family: var(--font-standout);
+}
+
+.nav__main_item {
+    line-height: 2.5rem;
+    letter-spacing: 0.2em;
+}
+
+.nav__main_item::before {
+    content:"";
+    display: block;
+    background: var(--color-top);
+    height: 1px;
+    width: 20rem;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
+
+.container__toplevel.Intro {
+    padding: 5rem 0;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-invert);
+}
+
+.container__toplevel.Intro header {
+    width: 70%;
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+}
+.Intro h2 {
+    font-size: 2rem;
+}
+
+.block__2_modules {
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    position: relative;
+    z-index:2;
+
+}
+
+.block__2_modules .container__img {
+    transition: all 0.4s ease-in 0s;
+}
+
+.block__2_modules .container__img:hover {
+    filter:grayscale(0.8);
+    filter:contrast(0.8);
+}
+
+.container__img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.label__img {
+    margin: 1rem 0;
+    padding:1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 70%;
+    background: var(--color-mid-ground);
+    font-size: smaller;
+}
+.label__img h3 {
+    margin: 0;
+}
