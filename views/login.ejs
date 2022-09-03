@@ -6,39 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/css/style.css"> 
     
-    <title>Log in to <%= pageinfo.title %></title>
+    <title>Log in &vert; <%= pageinfo.title %></title>
 </head>
 <body>
+    <header class="container__toplevel header">
+        <div class="section__feat invert">
+            <div class="Header__titles">
+                <span class="subtitle invert">Lorem Ipsum</span>
+                <h1>Dolor sit amet consectetur</h1>
+            </div>
+        </div>
+        <div class="section__cta">
+            <h2 class="subtitle">Log in</h2>
+            <form action="/login" method="POST" class="form__Login">
+                <input type="email" name="email" placeholder="Email" class="nav__main_item">
+                <input type="password" name="password" placeholder="Password" class="nav__main_item">
+                <button class="btn invert">Submit</button>
+            </form>
+            <div class="block">
+                <a href="/signup" class="btn btn__tertiary">New user? Sign up</a></span>
+            </div>
+        </div>
+    </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    <main id="" class="Intro container__toplevel">
+        <header class="">
+            <h2>Notice</h2>
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger">
+                        <p><%= el.msg %></p>
+                    </div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-danger">
+                        <p><%= el.msg %></p>
+                    </div>
+                <% }) %>    
+            <% } %>
+        </header>
+        <div class="">
+            <div class="container__img">
+                <img src="https://picsum.photos/800/750?random=1" alt="random img">
+                <!-- <figcaption class="label__img invert">Nothing to see here</figcaption> -->
+            </div>
+            <a href="" class="btn btn__tertiary">Back to top</a>
+        </div>
+    </main>
 </body>
 </html>
