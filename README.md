@@ -1,13 +1,4 @@
-# Introduction
-
-This list app allows for picture uploading per task.
-Some tasks not tagged private can be pooled and shared.
-
-Meant to help with habit forming.
-Tasks also take in timestamps.
-
 Built on the following.
-
 
 
 A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
