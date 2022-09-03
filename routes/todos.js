@@ -14,3 +14,5 @@ router.put('/markIncomplete', todosController.markIncomplete)
 router.delete('/deleteTodo', todosController.deleteTodo)
 
 module.exports = router
+
+// todos page becomes personal profile and dashboard page

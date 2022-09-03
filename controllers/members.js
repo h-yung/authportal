@@ -8,14 +8,10 @@ module.exports = {
             res.render('index.ejs',
             {
                 pageinfo: metadata,
-                sharedTodos: publicTodos 
+                sharedTodos: publicTodos
             })
         }catch(err){
             console.log(err)
         }
     }
-
-    // getIndex: (req,res)=> {
-    //     res.render('index.ejs')
-    // }
 }

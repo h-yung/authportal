@@ -36,6 +36,33 @@
             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis!</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda error nihil debitis eius, inventore non quas doloribus illum similique autem.</p>
         </header>
+        <section class="container__toplevel">
+            <div class="block">
+                <h3>Content shared publicly by members</h3>
+                <p>Need to get data representing any todos that are marked TRUE for publicshare.</p>
+                <p>Removed the "not" and "completed" classes here so client-side JS does not include/allow any public edits.</p>
+                <h3>Shared bloc isn't rendering at all!</h3>
+                <p>Also anonymized but if we want the username, will need to:</p>
+                <ol>
+                    <li>import user schema to main controller</li>
+                    <li>get user name from user id of todoItem</li>
+                    <li>pass within the object param for res.render</li>
+                </ol>
+
+                <% if (sharedTodos){ %>
+                    <ul>
+                    <% sharedTodos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span><%= el.todo %></span>
+                            </li>
+                    <% }) %>    
+                    </ul>
+                <% }else{ %>
+                <p>Nothing to see here!</p>
+                <% } %>
+
+            </div>
+        </section>
         <div class="block__2_modules">
             <div class="container__img">
                 <img src="https://picsum.photos/500/500?random=1" alt="random img">

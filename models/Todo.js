@@ -12,7 +12,15 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-  }
+  },
+  memberShare: {
+    type: Boolean,
+    required: true
+  },
+  publicShare: {
+    type: Boolean,
+    required: true
+  },
 },
 { timestamps: true } //added timestamp
 )

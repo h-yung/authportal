@@ -6,15 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/css/style.css"> 
     
-    <title><%= pageinfo.title %></title>
+    <title>Dashboard &vert; <%= pageinfo.title %></title>
 </head>
 <body>
     <h1>Todos</h1>
-
-    <h2>Welcome <%= user.userName %>!</h2>
+    <section class="Intro container__toplevel">
+    <% if (lastActiveDate) { %>
+        <h2>Welcome back, <%= user.userName %>!</h2>
+    <% } else { %>   
+        <h2>Welcome, <%= user.userName %>!</h2>
+    <% } %>
     <p>Today is <%= new Date();%>.</p>
+    <% if (lastActiveDate) { %>
     <p>You last logged in on <%= lastActiveDate %>.</p>
-    
+    <% } %>
+    </section>
+   
+
+    <section class="container__toplevel">
+        <h3>Your profile</h3>
+        <span>Placeholder- edit option, upload img option</span>
+        <div class="block">
+            <img src="">
+            <span>Full name</span>
+            <span>Contact info - email?</span>
+        </div>
+        <a href="" class="btn btn__secondary">Edit your account information</a>
+    </section>
+
+
+    <section data-info="greetings-summary">
+        <p>Today is <%= new Date();%>.</p>
+        <% if (lastActiveDate) { %>
+            <p>You last logged in on <%= lastActiveDate %>.</p>
+            <% } %>
+    </section>
+
+    <nav>
+        <a href="/members">Go to members area</a>
+        <a href="/logout">Log out</a>
+    </nav>
+
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
@@ -28,10 +60,15 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <label for="member-share">
+            Share with members
+            <input type="checkbox" name="memberShare" id="member-share">
+        </label>
+        <label for="public-share">
+            Also share with public? This will be shared with members as well.<input type="checkbox" name="publicShare" id="public-share">
+        </label>
+        <button>Submit</button>
     </form>
-
-    <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
 </body>

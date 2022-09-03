@@ -107,6 +107,13 @@ input {
 }
 
 /* special properties */
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
 .invert {
     color: var(--color-invert);
 }
@@ -189,14 +196,6 @@ form + .block {
     background: var(--color-top);
     height: 1px;
     width: 20rem;
-}
-
-.completed{
-    text-decoration: line-through;
-    color: gray;
-}
-.not{
-    text-decoration: underline;
 }
 
 .container__toplevel.Intro {

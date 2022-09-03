@@ -10,8 +10,8 @@ module.exports = {
         try{
             const todoItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-
-            const userWeWant = await User.findById(req.user.id); const actualDate = userWeWant['lastActiveDate']
+            const userWeWant = await User.findById(req.user.id); 
+            const actualDate = userWeWant['lastActiveDate']
             
             res.render('todos.ejs', 
                 {
@@ -27,7 +27,15 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create(
+                {
+                    todo: req.body.todoItem, 
+                    completed: false, 
+                    userId: req.user.id,
+                    memberShare: req.body.memberShare ? true : false,
+                    publicShare: req.body.publicShare ? true : false  
+                }
+            )
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -48,9 +56,9 @@ module.exports = {
     markIncomplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: false
+                completed: false,
+                timestamps: false //don't want updatedAt changed when marking incomplete
             })
-            console.log('Marked Incomplete')
             res.json('Marked Incomplete')
         }catch(err){
             console.log(err)

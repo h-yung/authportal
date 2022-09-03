@@ -33,8 +33,7 @@ const metadata = require('../helpers/metadata')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
 
-        console.log(user)
-        console.log(user['_id'])
+        console.log(`${user['_id']} userid just signed on`)
         User.findByIdAndUpdate(
           { _id: user['_id'] },
           { lastActiveDate: new Date() },
