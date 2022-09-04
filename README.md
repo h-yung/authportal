@@ -43,7 +43,11 @@ Recommended resource (members only)
     - memberShare Boolean (also appears in an area in personal dashboard)
     - recommended count Number - UNIQUE per member based on listener, functionality only available in member area. Potentially checkbox on frontend, does not increment. Member share of resource provides automatic + 1 count to start.
     - Appear in list (always sorted most recent), dropdown (by associated task?), or consider filter logic
-- 
+Customization
+- gamify the choose your avatar feature - like certain number of tasks must be completed.
+UI
+- adapt todo list area so that editing can be done in-place? With input styling and disabling
+
 
 ## Learnings
 - Every project with CSS teaches me more about the value and power of frameworks and naming conventions. Current approach is a hybrid and inconsistent.
