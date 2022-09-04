@@ -24,7 +24,7 @@ Vanilla CSS, because.
 - Replace placeholder copy. 
 - Temporary: Image provided at random for user avatar area from shortlist kept in backend. Not quite "helpers" but to be organized.
 - Permit user to upload their own avatar of choice, with image format and dimension recommendations. Part of the information editing form.
-- Test out fade/scroll/viewable window effects.
+- Fix dark mode.
 
 **Some ideas**:*
 Audio
