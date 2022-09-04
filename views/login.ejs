@@ -9,23 +9,24 @@
     <title>Log in &vert; <%= pageinfo.title %></title>
 </head>
 <body>
-    <header class="container__toplevel header">
+    <header id="top" class="container__toplevel header">
         <div class="section__feat invert">
             <div class="Header__titles">
                 <span class="subtitle invert">Lorem Ipsum</span>
-                <h1>Dolor sit amet consectetur</h1>
+                <h1><%= pageinfo.mainPhrase.join(' ') %></h1>
+            </div>
+            <div class="block__accent">
+                <a href="#latest" class="btn btn__secondary">See the latest</a>
             </div>
         </div>
         <div class="section__cta">
             <h2 class="subtitle">Log in</h2>
-            <form action="/login" method="POST" class="form__Login">
+            <form action="/login" method="POST" class="form">
                 <input type="email" name="email" placeholder="Email" class="nav__main_item">
                 <input type="password" name="password" placeholder="Password" class="nav__main_item">
                 <button class="btn invert">Submit</button>
             </form>
-            <div class="block">
-                <a href="/signup" class="btn btn__tertiary">New user? Sign up</a></span>
-            </div>
+            <a href="/signup" class="btn btn__tertiary">New user? Sign up</a></span>
         </div>
     </header>
 

@@ -29,7 +29,7 @@
     :root {
         --color-bkg: rgb(var(--color-dark));
         --color-top: rgb(var(--color-lightest));
-        --color-invert: rgb(var(--color-darkest));
+        --color-invert: rgb(var(--color-light));
     }
 }
 
@@ -47,13 +47,17 @@ body {
     padding: 0;
 }
 
+body *::selection {
+    background: var(--color-highlight);
+    color: rgb(var(--color-dark));
+}
+
 a {
     text-decoration: none;
     color: rgba(var(--color-highlight));
 }
 
 a:hover {
-    font-style: italic;
     color: var(--color-accent);
 }
 
@@ -61,10 +65,24 @@ p {
     line-height: 1.5em;
 }
 
+:not(.container__img, .frame__avatar) > img {
+    /* no containers */
+    margin: 3rem;
+}
+
 ul {
     list-style: none;
 }
 
+.list__ofItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.todoItem {
+    /* also used for reqs */
+    margin-bottom: 1rem;
+}
 
 h1,
 h2 {
@@ -77,33 +95,65 @@ input {
     padding: 0.5rem;
 }
 
+input[type="checkbox"] {
+    font-size: smaller;
+}
+
 .btn {
     display: inline-block;
     padding: 1rem 2rem;
     cursor: pointer;
     border-width: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    background: var(--color-mid-ground);
+    color: var(--color-invert);
+    background: var(--color-accent);
     transition: all 0.4s ease-in 0s;
 }
 
 .btn:is(:hover,:focus){
     filter:brightness(1.5);
+    color: var(--color-invert);
 }
 
 .btn__secondary {
     border: 1px solid var(--color-bkg);
     color: var(--color-invert);
+    background: var(--color-mid-ground);
+    width: fit-content;
 }
 
 .btn__tertiary {
     background: var(--color-invert);
+    color: var(--color-top);
     font-size: 1rem;
     border: 1px solid var(--color-top);
     width: fit-content;
+}
+
+.btn__tertiary:hover {
+    background: var(--color-bkg);
+    color: rgb(var(--color-top));
+}
+
+.btn__tertiary.Foot {
     margin-top: 1rem;
+}
+
+/* unique assets */
+.frame__avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.frame__avatar img {
+    height: 100%;
+    width: auto;
+}
+
+a[data-info="go-edit-user"] {
+    font-weight: bold;
+    cursor:pointer;
 }
 
 /* special properties */
@@ -112,8 +162,9 @@ input {
     color: gray;
 }
 .not{
-    text-decoration: underline;
+    text-decoration: green wavy underline;
 }
+
 .invert {
     color: var(--color-invert);
 }
@@ -147,21 +198,25 @@ input {
 }
 
 .Header__titles {
-    writing-mode: vertical-rl;
-    max-height: 80vh;
+    /* writing-mode: vertical-rl;
+    max-height: 80vh; */
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .block {
     /* a bland block */
-    padding: 0.5rem;
-    width: fit-content;
-    height: fit-content;
+    padding: 5rem;
+}
+
+.block__nested {
+    max-width: 30%;
 }
 
 form + .block {
     margin-top: 3rem;
 }
-
 
 .block__accent {
     background: var(--color-mid-ground);
@@ -176,7 +231,16 @@ form + .block {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    text-align: center;
+}
+
+.section__cta .btn__tertiary {
+    /* format now linked to meaning */
+    margin-top: 5rem;
+}
+
+.section__cta button {
+    width: fit-content;
+    align-self:flex-end;
 }
 
 .nav__main {
@@ -196,6 +260,47 @@ form + .block {
     background: var(--color-top);
     height: 1px;
     width: 20rem;
+}
+
+.navbar__top {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--color-invert);
+
+    position: sticky;
+    top:0;
+    z-index:3; /* above subseq */
+}
+
+.navbar__top .frame__avatar {
+    height: 7rem;
+    width: 7rem;
+    margin-right: 3rem;
+}
+
+.navbar__top .container__toplevel {
+    align-items: center;
+}
+
+.navbar__top .subtitle {
+    font-size: 1rem;
+    margin-right: 1rem;
+    width: 100%;
+}
+
+.navbar__top .nav__main {
+    align-items:baseline;
+}
+
+.navbar__top .nav__main_item {
+    text-align: center;
+}
+
+li:last-child .btn {
+    margin: 0 0.5rem;
 }
 
 .container__toplevel.Intro {
@@ -220,9 +325,11 @@ form + .block {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 2rem;
-    position: relative;
-    z-index:2;
+}
 
+.blokc__2_modules.Main {
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
 }
 
 .block__2_modules .container__img {
@@ -230,24 +337,26 @@ form + .block {
 }
 
 .block__2_modules .container__img:hover {
-    filter:grayscale(0.8);
-    filter:contrast(0.8);
+    filter:brightness(1);
+    filter:contrast(0.5);
 }
 
 .container__img img {
     width: 100%;
     height: auto;
-    display: block;
+}
+.block__2_modules .container__img img{
+    filter:grayscale(0.5);
+    transition: all 0.4s ease-in 0s;
 }
 
 .label__img {
     margin: 1rem 0;
     padding:1.5rem;
+    border-left: 1px solid var(--color-top);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    width: 70%;
-    background: var(--color-mid-ground);
     font-size: smaller;
 }
 .label__img h3 {
@@ -257,10 +366,92 @@ form + .block {
 
 
 /*PAGES ============================*/
-.form__Login {
+
+.form {
     display: flex;
     flex-direction: column;
 }
-.form__Login > * {
+.form > * {
     margin: 0.5rem 0;
+}
+
+.form__inline {
+    margin: 2rem;
+    padding: 4rem;
+    border: 2px solid var(--color-top);
+    display: flex;
+}
+
+.container__form_inline {
+    display: flex;
+    align-items: center;
+}
+
+/*todos page ============================*/
+
+.form__sidebar {
+    padding: 2rem;
+}
+
+.container__toplevel.Personal {
+    margin: 5rem 0;
+    align-items: center;
+}
+
+.container__img.Personal {
+    min-width: 70%;
+}
+
+.container__toplevel.container__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top:6rem; /*extra to avoid nav obsc.*/
+    /* flex-direction: column */
+}
+.container__list >.block {
+    display: flex;
+}
+
+.container__announce .container__img {
+    width: 60%;
+    height: auto;
+    align-self: right;
+}
+
+.frame__avatar.Personal {
+    height: 15rem;
+    width: 15rem;
+}
+
+.block__announce {
+    display: flex;
+    align-items: center;
+}
+
+.container__form_inline .form {
+    padding-left: 2rem;
+    border-left: 1px solid var(--color-top);
+}
+
+/* createTodos form ============================= */
+
+.form__create_todos {
+    margin: 2rem 0;
+}
+
+input[name='todoItem'] {
+    /* add validation? */
+    max-width: 40rem;
+    border: none;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.form__fieldset {
+    border: none;
+    padding: 0.5em 0.5em 1rem 0.5em;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    max-width: 40rem;
 }

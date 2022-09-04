@@ -9,6 +9,7 @@ const TodoSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  // totalHours: Number,
   userId: {
     type: String,
     required: true

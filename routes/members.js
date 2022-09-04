@@ -3,6 +3,9 @@ const router = express.Router()
 const membersController = require('../controllers/members') 
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/members', ensureAuth, membersController.getMembers) //serve members view with any shared data
+router.get('/', ensureAuth, membersController.getMembers) 
+router.get('/test', ensureAuth, membersController.getTest) 
+
+//serve members view with any shared data. This is actually /members/*
 
 module.exports = router

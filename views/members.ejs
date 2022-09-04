@@ -9,49 +9,67 @@
     <title>Members Area &vert; <%= pageinfo.title %></title>
 </head>
 <body>
-    <header class="container__toplevel header">
-        <div class="block">
-            <nav>
-                <ul class="nav__main Members">
-                    <li>
-                        <span>Logo pls</span>
-                    </li>
-                    <li>
-                        <span>Make this sticky somewhere? side or over top?</span>
-                    </li>
-                    <li>
-                        <a href="" class="btn secondary">Go places</a>
-                    </li>
-                    <li>
-                        <a href="" class="btn secondary">Go places</a>
-                    </li>
-                    <li>
-                        <a href="/logout" class="btn btn_tertiary">Log out</a>
-                    </li>
-                    <li>
-                        <button type="button"  class="btn">Submit something?</button>
-                    </li>
-                </ul>
-            </nav>
+    <nav class="navbar__top">
+        <div class="container__toplevel">
+            <a href="/" class="">
+                <div class="frame__avatar">
+                    <img src="../411-500x500.jpg" data-note="src is given relative to public folder not the ejs" id="logo" alt="logo">
+                </div>
+            </a>
+            <div class="nav__greeting">
+                <span class="subtitle">Go home without being treated like you logged out</span>
+            </div>
         </div>
-    </header>  
+        <ul class="nav__main">
+            <li class="nav__main_item">
+                <a href="/todos">Dashboard</a>
+            </li>
+            <li class="nav__main_item">
+                <a href="/main">Home</a>
+            </li>
+            <li>
+                <a href="/logout" class="btn btn__tertiary">Log out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="#top" data-info="exists as top anchor" tabindex="-1"></div>
     
     <main id="" class="Intro container__toplevel">
         <header class="">
-            <h2>Loreum ipsum</h2>
+            <div class="container__toplevel Personal">
+                <div class="container__img Personal">
+                    <img src="https://picsum.photos/900/500?random=1" alt="">
+                </div>
+            </div>
+            <h2>Is "/" from Members page going Home?</h2>
             <section class="block__2_modules">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo deleniti, neque dolor similique quibusdam id libero nesciunt vel cupiditate quae?</p>
-                <h3>Lorem ipsum</h3>
-                <span class="subtitle">Lorem ipsum</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo deleniti, neque dolor similique quibusdam id libero nesciunt vel cupiditate quae?</p>
+                <div class="block">
+                    <p>If you see your own todos, should you be able to check them off from member's page?</p>
+                </div>
+                <div class="">
+                    <h3>Anonymize or no?</h3>
+                    <span class="subtitle">Lorem ipsum</span>
+                    <p>Should the controller find the user by todo's associated user id and credit the user in members' area?</p>
+                </div>
             </section>
-            
+        </header>
+        <section class="container__toplevel">
+            <h3>Members' tasks</h3>
+            <ul>
+                <% memberViewableTodos.forEach( el => { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span><%= el.todo %></span>
+                        </li>
+                <% }) %>    
+                </ul>
+        </section>    
         <div class="">
             <div class="container__img">
                 <img src="https://picsum.photos/800/750?random=1" alt="random img">
                 <!-- <figcaption class="label__img invert">Nothing to see here</figcaption> -->
             </div>
-            <a href="" class="btn btn__tertiary">Back to top</a>
+            <a href="#top" class="Foot btn btn__tertiary">Back to top</a>
         </div>
     </main>
 </body>

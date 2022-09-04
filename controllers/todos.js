@@ -6,7 +6,7 @@ const metadata = require('../helpers/metadata')
 
 module.exports = {
     getTodos: async (req,res)=>{
-        console.log(req.user)
+        // console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
@@ -32,7 +32,7 @@ module.exports = {
                     todo: req.body.todoItem, 
                     completed: false, 
                     userId: req.user.id,
-                    memberShare: req.body.memberShare ? true : false,
+                    memberShare: req.body.memberShare || req.body.publicShare ? true : false,
                     publicShare: req.body.publicShare ? true : false  
                 }
             )
@@ -44,9 +44,13 @@ module.exports = {
     },
     markComplete: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: true
+            let doc = await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                completed: true,
+                // totalHours:{ $divide : [{$subtract: ["updatedAt", "createdAt"]}, 3600000]}
             })
+            
+            // totalHours is a hidden key
+            // console.log(`This many hours to complete ${doc.todo}: ${doc.totalHours}`)
             console.log('Marked Complete')
             res.json('Marked Complete')
         }catch(err){
@@ -65,7 +69,7 @@ module.exports = {
         }
     },
     deleteTodo: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
+        // console.log(req.body.todoIdFromJSFile)
         try{
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
             console.log('Deleted Todo')

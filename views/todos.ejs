@@ -9,66 +9,126 @@
     <title>Dashboard &vert; <%= pageinfo.title %></title>
 </head>
 <body>
-    <h1>Todos</h1>
-    <section class="Intro container__toplevel">
-    <% if (lastActiveDate) { %>
-        <h2>Welcome back, <%= user.userName %>!</h2>
-    <% } else { %>   
-        <h2>Welcome, <%= user.userName %>!</h2>
-    <% } %>
-    <p>Today is <%= new Date();%>.</p>
-    <% if (lastActiveDate) { %>
-    <p>You last logged in on <%= lastActiveDate %>.</p>
-    <% } %>
-    </section>
-   
-
-    <section class="container__toplevel">
-        <h3>Your profile</h3>
-        <span>Placeholder- edit option, upload img option</span>
-        <div class="block">
-            <img src="">
-            <span>Full name</span>
-            <span>Contact info - email?</span>
+    <div id="top" data-info="top anchor" tabindex="-1"></div>
+    <nav class="navbar__top">
+        <div class="container__toplevel">
+            <a href="/" class="">
+                <div class="frame__avatar">
+                    <img src="../411-500x500.jpg" data-note="src is given relative to public folder not the ejs" id="logo" alt="logo">
+                </div>
+            </a>
+            <div class="nav__greeting">
+                <% if (lastActiveDate) { %>
+                    <span class="subtitle">Welcome back, <%= user.userName %><span>
+                <% } else { %>   
+                    <span class="subtitle">Welcome, <%= user.userName %></span>
+                <% } %>
+                <a href="#showUpdateForm" data-info="go-edit-user" class="subtitle">&middot; Edit your info</a> 
+            </div>
         </div>
-        <a href="" class="btn btn__secondary">Edit your account information</a>
-    </section>
-
-
-    <section data-info="greetings-summary">
-        <p>Today is <%= new Date();%>.</p>
-        <% if (lastActiveDate) { %>
-            <p>You last logged in on <%= lastActiveDate %>.</p>
-            <% } %>
-    </section>
-
-    <nav>
-        <a href="/members">Go to members area</a>
-        <a href="/logout">Log out</a>
-    </nav>
-
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+        <ul class="nav__main">
+            <li class="nav__main_item">
+                <a href="#list">Jump to List</a>
             </li>
-    <% }) %>    
-    </ul>
+            <li class="nav__main_item">
+                <a href="/members">Members Area</a>
+            </li>
+            <li class="nav__main_item">
+                <a href="/main">Home</a>
+            </li>
+            <li>
+                <a href="/logout" class="btn btn__tertiary">Log out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container__toplevel Personal">
+        <div class="container__img Personal">
+            <img src="../915-900x500.jpg" alt="">
+        </div>
+    </div>
+    <section id="list" class="container__toplevel container__list">
+        <div class="block">
+            <div class="block block__nested">
+                <% if (left !== 1) { %>
+                    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+                <% } else { %>
+                    <h2><%= user.userName %> has 1 thing left to do.</h2>
+                <% } %>
+            </div>
+            <ul class="list__ofItems">
+            <% todos.forEach( el => { %>
+                <li class="todoItem" data-id="<%=el._id%>">
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                    <button type="button">Edit todo</button>
+                    <span class='del'> Delete </span>
+                </li>
+            <% }) %>    
+                <li>
+                    <form action="/todos/createTodo" method='POST' class="form form__create_todos">
+                        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+                        <fieldset class="form__fieldset">
+                            <label for="member-share">
+                                <input type="checkbox" name="memberShare" id="member-share">
+                                Share with members with byline.
+                            </label>
+                            <label for="public-share">
+                                <input type="checkbox" name="publicShare" id="public-share">
+                                Share with both members and public (anonymized).
+                            </label>
+                        </fieldset>
+                        <button class="btn btn__secondary">Submit</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <div class="container__toplevel">
+        <section class="block block__announce">
+            <div class="block">
+                <p class="subtitle">Today is <%= new Date();%>.</p>
+                <% if (lastActiveDate) { %>
+                <p>You last logged in on <%= lastActiveDate %>.</p>
+                <% } %>
+            </div>
+            <img src="../308-700x450.jpg" alt="">
+        </section>
+    </div>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <label for="member-share">
-            Share with members
-            <input type="checkbox" name="memberShare" id="member-share">
-        </label>
-        <label for="public-share">
-            Also share with public? This will be shared with members as well.<input type="checkbox" name="publicShare" id="public-share">
-        </label>
-        <button>Submit</button>
-    </form>
+    <section class="container__toplevel block__accent">
+        <div class="block">
+            <span>Placeholder- PROFILE edit option, upload img option in link from nav</span>
+            <span>Autogenerate img for user? could randomize from small selection for now.</span>
+            <span>Placeholder- TODO edit option, may include img upload option later</span>
+            <span>How go home w/o 'logout'? special logged-in home called '/main'?</span>
+            <p>todosController.updateUser - need to have a listener on form to remove default behavior and client-side JS to send as PUT not POST.</p>
+            <span>Nothing is responsive yet</span>
+            <ol>
+                <li>Route - /todos/updateProfile</li>
+                <li>method .updateUser should send back a success or error message</li>
+                <li>expose it in a placeholder area under the form</li>
+            </ol>
+        </div>
+
+    </section>
+
+    <div id="showUpdateForm" class="container__toplevel Intro container__form_inline">
+        <img src="../478-1000x200.jpg" alt="">
+        <form id="updateUser" action="/updateProfile" method="" class="form">
+            
+            <h2 class="subtitle">Update user information</h2>
+            <input type="text" name="userName" placeholder=<%= `${user.userName}`%> >
+            <input type="email" name="email" placeholder=<%= `${user.email}`%>>
+            <input type="password" name="confirmPassword" placeholder="Enter password to confirm">
+            <button class="btn btn__secondary" id="send-update">Submit</button>
+            <span>Placeholder message area</span>
+        </form>
+    </div>
+    <div class="container__toplevel">
+        <div class="block">
+            <a href="#top" class="Foot btn btn__tertiary">Back to top</a>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

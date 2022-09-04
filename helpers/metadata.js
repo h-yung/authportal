@@ -1,3 +1,4 @@
 module.exports = {
-    title: "Lorem Ipsum"
+    title: "Lorem Ipsum",
+    mainPhrase: ["Get things done", "without stress"]
 }    

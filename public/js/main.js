@@ -68,6 +68,15 @@ async function markIncomplete(){
     }
 }
 
+// update user
+const formUpdateUser = document.querySelector('#updateUser')
+formUpdateUser.addEventListener('submit', e=> e.preventDefault())
 
+const sendUpdateButton = document.querySelector('#send-update')
+sendUpdateButton.addEventListener('click', sendPutUser)
+
+async function sendPutUser(){
+    // etc
+}
 
 // decorative

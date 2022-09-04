@@ -9,7 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
-// const memberRoutes = require('./routes/members')
+const memberRoutes = require('./routes/members')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -41,7 +41,7 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
-// app.use('/members', memberRoutes)
+app.use('/members', memberRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server running at the end of the world.')
