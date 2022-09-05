@@ -13,7 +13,11 @@
         <div class="container__toplevel">
             <a href="/" class="">
                 <div class="frame__avatar">
-                    <img src="../411-500x500.jpg" data-note="src is given relative to public folder not the ejs" id="logo" alt="logo">
+                    <% if (profilePic) { %>
+                        <img src="data:image/<%= profilePic.contentType%>;base64,<%= profilePic.data.toString('base64')%>" id="avatar" alt="profile pic">
+                    <% } else { %>
+                        <img src="../411-500x500.jpg" data-note="src is given relative to public folder not the ejs" id="logo" alt="logo">
+                    <% }  %>
                 </div>
             </a>
             <div class="nav__greeting">

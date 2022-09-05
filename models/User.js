@@ -5,7 +5,11 @@ const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
-  lastActiveDate: Date //as opposed to createdAt, this is also used as a one-time check of firsttimers on the Todos page
+  lastActiveDate: Date, //as opposed to createdAt, this is also used as a one-time check of firsttimers on the Todos page
+  profileImg: {
+    data: Buffer,
+    contentType: String
+  }
 },
 { timestamps: true }
 )

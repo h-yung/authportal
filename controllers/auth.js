@@ -70,7 +70,7 @@ const metadata = require('../helpers/metadata')
     })
   }
   
-  exports.postSignup = (req, res, next) => {
+  exports.postSignup = async (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
@@ -81,11 +81,17 @@ const metadata = require('../helpers/metadata')
       return res.redirect('../signup')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
-  
+    const profilePic = req.files.profileImg
+    
     const user = new User({
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      profileImg: {
+        data: profilePic.data,
+        contentType: profilePic.mimetype
+      }
+      //a first time sign up does not have a lastActiveDate key. use to differentiate summary on getTodos
     })
   
     User.findOne({$or: [
