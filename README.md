@@ -5,7 +5,7 @@ More functionality to come.
 Built over a baseline todo app using MVC architecture [here](https://github.com/100devs/todo-mvc-auth-local) and with picture credits to [Lorem Picsum](https://picsum.photos/).
 
 **Tech used**:
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, express-fileupload (img management)
 
 Vanilla CSS, because.
 
@@ -13,6 +13,7 @@ Vanilla CSS, because.
 - Highlights completed tasks marked shareable to public by members.
 - Provides clean and consistent navigation customized based on current view in the app.
 - Customized "homepage" so that a logged-in user is not treated as logged out when returning to the home page.
+- User can upload an image of their choice for an avatar (shown in personal and members area) or else a default user image is shown.
 
 ## Optimizations
 - Build out the User profile editing functionality (currently placeholder in Dashboard area).
@@ -22,7 +23,6 @@ Vanilla CSS, because.
    - Decide whether to connect to additional APIs and how it might complement the goal of the app.*
 - Make responsive with media queries.
 - Replace placeholder copy. 
-- Temporary: Image provided at random for user avatar area from shortlist kept in backend. Not quite "helpers" but to be organized.
 - Permit user to upload their own avatar of choice, with image format and dimension recommendations. Part of the information editing form.
 - Fix dark mode.
 
@@ -51,4 +51,5 @@ UI
 
 ## Learnings
 - Every project with CSS teaches me more about the value and power of frameworks and naming conventions. Current approach is a hybrid and inconsistent.
-- Using ejs feels a bit painful after being able to build reusable components with React.
+- EJS handles "undefined" in a unique way. Current workaround is to provide a default value for required variables from the controller but there seems to be [alternatives writable in the views/ejs](https://stackoverflow.com/questions/7289916/how-would-you-check-for-undefined-property-in-ejs-for-node-js) as well.
+Using ejs feels a bit painful after being able to build reusable components with React, but this setup with SSR and ejs neatly sidesteps potential CORS issues during development.
