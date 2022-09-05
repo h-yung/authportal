@@ -13,14 +13,7 @@ module.exports = {
             const userWeWant = await User.findById(req.user.id); 
             const actualDate = userWeWant['lastActiveDate'];
 
-            let profilePic;
-            if (userWeWant['profileImg'] === undefined || !userWeWant['profileImg']){
-                profilePic = userWeWant['profileImg']
-            } else {
-                // console.log('use default')
-                const defaultUser = await User.findOne({userName:'default'});
-                profilePic = defaultUser['profileImg']
-            }
+            const profilePic = userWeWant['profileImg']
             
             res.render('todos.ejs', 
                 {

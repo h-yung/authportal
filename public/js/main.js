@@ -68,6 +68,16 @@ async function markIncomplete(){
     }
 }
 
+// show selected profile image on signup
+// const avatarUploadLabel = document.querySelector('label[for="profilePic"]')
+// const avatarInput = document.querySelector('#profilePic')
+
+// avatarInput.addEventListener('change', (e)=>{
+//     const fileName = e.files[0].name
+//     console.log(`I ran, ${fileName}`)
+//     avatarUploadLabel.childNodes[0].textContent = fileName
+// })
+
 // update user
 const formUpdateUser = document.querySelector('#updateUser')
 formUpdateUser.addEventListener('submit', e=> e.preventDefault())
@@ -77,6 +87,7 @@ sendUpdateButton.addEventListener('click', sendPutUser)
 
 async function sendPutUser(){
     // etc
+    
 }
 
 // decorative

@@ -15,9 +15,6 @@
                 <span class="subtitle invert">Lorem Ipsum</span>
                 <h1><%= pageinfo.mainPhrase.join(' ') %></h1>
             </div>
-            <div class="block__accent">
-                <a href="#latest" class="btn btn__secondary">See the latest</a>
-            </div>
         </div>
         <div class="section__cta">
             <h2 class="subtitle">Create an account</h2>
@@ -28,10 +25,12 @@
                 enctype="multipart/form-data"
             >
                 <input type="text" name="userName" placeholder="Username" class="nav__main_item">
-                <label for="profilePic">
-                    Upload profile img if you want:
-                    <input type="file" id="profilePic" name="profileImg" accept="image/*">
-                </label>
+                <fieldset>
+                    <legend class="label__upload_img">
+                        Add a profile image
+                    </legend>
+                    <input type="file" id="profilePic" name="profileImg" accept="image/*" value = "">
+                </fieldset>
                 <input type="email" name="email" placeholder="Email" class="nav__main_item">
                 <input type="password" name="password" placeholder="Password" class="nav__main_item">
                 <input type="password" name="confirmPassword" placeholder="Confirm password" class="nav__main_item">
@@ -41,9 +40,8 @@
         </div>
     </header>
 
-    <main id="" class="Intro container__toplevel">
-        <header class="">
-            <h2>Notice</h2>
+    <section id="" class="Intro container__toplevel">
+        <div class="">
             <% if (locals.messages.errors) { %>
                 <% messages.errors.forEach( el => { %>
                     <div class="alert alert-danger">
@@ -51,15 +49,8 @@
                     </div>
                 <% }) %>    
             <% } %>
-        </header>
-        <div class="">
-            <div class="container__img">
-                <img src="https://picsum.photos/800/750?random=1" alt="random img">
-                <!-- <figcaption class="label__img invert">Nothing to see here</figcaption> -->
-            </div>
-            <a href="#top" class="btn btn__tertiary">Back to top</a>
         </div>
-    </main>
+    </section>
 
 
 

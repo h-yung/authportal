@@ -81,7 +81,18 @@ const metadata = require('../helpers/metadata')
       return res.redirect('../signup')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
-    const profilePic = req.files.profileImg
+
+    let profilePic;
+    if (req.files) {
+      // ('submitted a profile pic')
+      profilePic = req.files.profileImg
+    } else if (!req.files){
+      // ('did not find a profile pic submitted')
+      const defaultUser = await User.findOne({userName:'default'});
+      profilePic = defaultUser['profileImg']
+      profilePic['data'] = defaultUser['profileImg'].data
+      profilePic['mimetype'] = defaultUser['contentType'] //patching
+    }
     
     const user = new User({
       userName: req.body.userName,
