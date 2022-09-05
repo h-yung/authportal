@@ -86,8 +86,14 @@ const sendUpdateButton = document.querySelector('#send-update')
 sendUpdateButton.addEventListener('click', sendPutUser)
 
 async function sendPutUser(){
-    // etc
+    // etc - how to get user id?
     
+    //get user ID
+    //send user ID along with form information:
+    // userName
+    // email
+    // confirmPassword - which is atypical as usually you need to enter current PW, and new pw 2x
+
+    //how to submit the above? use default button behavior?
 }
 
-// decorative
