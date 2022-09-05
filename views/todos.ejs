@@ -117,7 +117,13 @@
         <form id="updateUser" action="/updateProfile" method="" class="form">
             
             <h2 class="subtitle">Update user information</h2>
-            <input type="text" name="userName" placeholder=<%= `${user.userName}`%> >
+            <input type="text" name="userName" placeholder=<%= `${user.userName}`%> 
+            <fieldset>
+                <legend class="label__upload_img">
+                    Replace profile image
+                </legend>
+                <input type="file" id="profilePic" name="profileImg" accept="image/*" value = "">
+            </fieldset>
             <input type="email" name="email" placeholder=<%= `${user.email}`%>>
             <input type="password" name="confirmPassword" placeholder="Enter password to confirm">
             <button class="btn btn__secondary" id="send-update">Submit</button>

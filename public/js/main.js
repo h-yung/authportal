@@ -91,7 +91,9 @@ async function sendPutUser(){
     //get user ID
     //send user ID along with form information:
     // userName
+    //profileImg
     // email
+    //change avatar
     // confirmPassword - which is atypical as usually you need to enter current PW, and new pw 2x
 
     //how to submit the above? use default button behavior?
