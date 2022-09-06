@@ -80,22 +80,40 @@ async function markIncomplete(){
 
 // update user
 const formUpdateUser = document.querySelector('#updateUser')
-formUpdateUser.addEventListener('submit', e=> e.preventDefault())
+formUpdateUser.addEventListener('submit', e => sendPutUser(e))
 
 const sendUpdateButton = document.querySelector('#send-update')
-sendUpdateButton.addEventListener('click', sendPutUser)
+sendUpdateButton.addEventListener('click', e => sendPutUser(e))
 
-async function sendPutUser(){
+async function sendPutUser(e){
+    e.preventDefault();
     // etc - how to get user id?
+    console.log('I am running')
     
-    //get user ID
-    //send user ID along with form information:
+    // get user ID
+    // send user ID along with form information:
     // userName
-    //profileImg
+    // profileImg
     // email
-    //change avatar
     // confirmPassword - which is atypical as usually you need to enter current PW, and new pw 2x
 
-    //how to submit the above? use default button behavior?
+    // how to submit the above? use default button behavior?
+    // const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('/updateProfile', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                userName: userName,
+                profileImg: profileImg,
+                email: email
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
 }
 
