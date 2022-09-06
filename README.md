@@ -31,7 +31,6 @@ Rather than a "productivity" app, even as more functionality is built out, this 
 - Design:
    - Continue to improve the mobile experience.
    - Fix dark mode issues.
-- Replace placeholder copy. 
 
 ## Learnings
 **Functionality**
