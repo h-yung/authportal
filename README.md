@@ -1,6 +1,6 @@
 ## Idle Tasks App
 
-An app that makes task management and completion a less stressful, more rewarding, and more social activity. 
+An app that makes task management and completion a less stressful, more rewarding, and slightly more communal activity. 
 Uses authentication to create members-only area (under construction), and a personal dashboard/list, while providing an informative landing page for newcomers/potential members. 
 
 Functionality and styling both WIP. Built over a baseline [todo app](https://github.com/100devs/todo-mvc-auth-local) using MVC architecture [here](https://github.com/100devs/todo-mvc-auth-local) and with picture credits to [Lorem Picsum](https://picsum.photos/).
