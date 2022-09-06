@@ -11,6 +11,11 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 Vanilla CSS, because I find it easier to explore visual directions this way. 
 
+## Approach / design decisions
+- Rather than let users edit their to-dos, this app will prioritize the satisfaction of crossing things out on a list. Users can currently mark items incomplete again but timestamps will track completion only. 
+- Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
+  - User-generated content will remain text/copy focused in general, which also preserves the overall aesthetic.
+
 ## Current features
 - Highlights completed tasks marked shareable to public by members.
 - Provides clean and consistent navigation customized based on current view in the app.
@@ -28,12 +33,7 @@ Vanilla CSS, because I find it easier to explore visual directions this way.
    - Fix dark mode issues.
 - Replace placeholder copy. 
 
-## Learnings and approach
-**Design decisions**
-- Rather than let users edit their to-dos, this app will prioritize the satisfaction of crossing things out on a list. Users can currently mark items incomplete again but timestamps will track completion only. 
-- Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
-  - User-generated content will remain text/copy focused in general, which also preserves the overall aesthetic.
-
+## Learnings
 **Functionality**
 - EJS handles "undefined" differently than expected. Current workaround is to provide a default value for required variables from the controller but there seems to be [alternatives writable in the views/ejs](https://stackoverflow.com/questions/7289916/how-would-you-check-for-undefined-property-in-ejs-for-node-js) as well. It feels a bit painful after being able to build reusable components with React, but this setup with SSR and ejs neatly sidesteps potential CORS issues during development.
 - POST reqs with current setup appear to automatically include user id.
