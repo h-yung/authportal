@@ -5,7 +5,7 @@ Uses authentication to create members-only area (under construction), and a pers
 
 Functionality and styling both WIP. Built over a baseline [todo app](https://github.com/100devs/todo-mvc-auth-local) using MVC architecture [here](https://github.com/100devs/todo-mvc-auth-local) and with picture credits to [Lorem Picsum](https://picsum.photos/).
 
-![dash_desk](https://user-images.githubusercontent.com/102257735/188546247-e73aa2ee-c279-42f7-bb8d-8143bd3d0d88.jpg)
+![dash_desk](https://user-images.githubusercontent.com/102257735/188673917-76ea74a9-a3b7-4822-89ed-f800bac8451b.jpg)
 
 **Tech used**:
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, express-fileupload (img management)
