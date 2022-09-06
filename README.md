@@ -15,7 +15,7 @@ Vanilla CSS, because I find it easier to explore visual directions this way.
 Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
   - User-generated content will remain text/copy focused in general, which also preserves the overall aesthetic.
 - Similarly, I am walking back the initial idea of letting users edit their to-dos. Instead, this app will prioritize the satisfaction of crossing things out on a list and have a growing list of completed items. Users can currently mark items incomplete again but timestamps will track completion only. 
-- 
+
 ## Current features
 - Highlights completed tasks marked shareable to public by members.
 - Provides clean and consistent navigation customized based on current view in the app.
