@@ -24,6 +24,18 @@
                 <span class="subtitle">Go home without being treated like you logged out</span>
             </div>
         </div>
+
+        <input type="checkbox" id="burgerInput" class="hide__mobile">
+        <label id="burgerMenu" for="burgerInput" class="hide__mobile">
+            Menu 
+            <nav class="nav__mobile">
+                <a href="/todos" class="nav__mobile_item">Dashboard</a>
+                <a href="/main" class="nav__mobile_item">Home</a>
+                <a href="/logout" class="nav__mobile_item">Log out</a>
+            </nav>
+        </label>
+		<div class="overlay"></div>
+
         <ul class="nav__main">
             <li class="nav__main_item">
                 <a href="/todos">Dashboard</a>

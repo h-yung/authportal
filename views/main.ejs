@@ -22,7 +22,7 @@
         <div class="section__cta">
             <h1><%= pageinfo.mainPhrase[1] %></h1>
             <h2 class="subtitle">Manage your list</h2>
-            <ul class="nav__main">
+            <ul class="nav__main front">
                 <li class="nav__main_item">
                     <a href="/todos">Dashboard</a>
                 </li>
@@ -62,35 +62,31 @@
         <section class="container__toplevel">
             <div class="block__2_modules">
                 <div class="block">
-                    <h3>Shared todos</h3>
-                    <% if (sharedTodos.length){ %>
-                        <ul>
-                        <% sharedTodos.forEach( el => { %>
-                                <li class='todoItem' data-id='<%=el._id%>'>
-                                    <span><%= el.todo%> added on <%=el.createdAt %></span>
-                                </li>
-                        <% }) %>    
-                        </ul>
-                    <% }else{ %>
-                    <p>Nothing to see here!</p>
-                    <% } %>
+                    <div>
+                        <h3 class="Heading__list">Shared todos</h3>
+                        <% if (sharedTodos.length){ %>
+                            <ul>
+                            <% sharedTodos.forEach( el => { %>
+                                    <li class='todoItem' data-id='<%=el._id%>'>
+                                        <span><%= el.todo%> added on <%=el.createdAt %></span>
+                                    </li>
+                            <% }) %>    
+                            </ul>
+                        <% }else{ %>
+                        <p>Nothing to see here!</p>
+                        <% } %>
+                    </div>
                 </div>
                 <div class="block">
                     <h2>Celebrate every win &mdash; from paying off your bills to simply enjoying your food.</h2>
-                    <p>Featured task section below? Create more info such as - representative image? notes on duration it took? (calculate days elapsed from dateCreated to dateUpdated, upon moment of completion (updatedAt). Maybe remove "mark Incomplete" function altogether and change it to likes or "recreate task" to prepopulate a POST...)</p>
-                    <p>Removed the "not" and "completed" classes here so client-side JS does not include/allow any public edits. Also anonymized but if we want the username, will need to:</p>
-                    <h3>List items from members</h3>
-                    <ol>
-                        <li>import user schema to main controller</li>
-                        <li>get user name from user id of todoItem</li>
-                        <li>pass within the object param for res.render</li>
-                    </ol>
                 </div>
             </div> 
         </section>
     </main>
-    <div class="block">
-        <a href="#top" class="btn btn__tertiary">Back to top</a>
+    <div class="container__toplevel">
+        <div class="block">
+            <a href="#top" class="btn btn__tertiary">Back to top</a>
+        </div>
     </div>
 </body>
 </html>

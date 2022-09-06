@@ -50,6 +50,11 @@ UI
 
 
 ## Learnings
-- Every project with CSS teaches me more about the value and power of frameworks and naming conventions. Current approach is a hybrid and inconsistent.
+**Functionality**
 - EJS handles "undefined" in a unique way. Current workaround is to provide a default value for required variables from the controller but there seems to be [alternatives writable in the views/ejs](https://stackoverflow.com/questions/7289916/how-would-you-check-for-undefined-property-in-ejs-for-node-js) as well.
 Using ejs feels a bit painful after being able to build reusable components with React, but this setup with SSR and ejs neatly sidesteps potential CORS issues during development.
+- POST reqs with current setup appear to automatically include user id.
+**Styling**
+- `input[type="file"]` is fairly resistant to custom styling and none of the existing workarounds are working as desired.
+
+

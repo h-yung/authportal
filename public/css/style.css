@@ -88,6 +88,7 @@ p {
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 .list__ofItems {
@@ -133,6 +134,11 @@ input[type="checkbox"] {
     /* color: var(--color-dark); */
 }
 
+.btn.del {
+    border-left: 1px solid var(--color-accent);
+    /* margin-left: 1rem; */
+}
+
 .btn__secondary {
     border: 1px solid var(--color-bkg);
     color: rgb(var(--color-light));
@@ -167,6 +173,10 @@ a[data-info="go-edit-user"] {
 }
 
 /* special properties */
+.hide__mobile {
+    display: none;
+}
+
 .completed{
     text-decoration: line-through;
     color: gray;
@@ -186,11 +196,15 @@ a[data-info="go-edit-user"] {
     font-size: 1.6rem;
 }
 
+.Heading__list {
+    font-family: var(--font-standout);
+    letter-spacing: 0.2em;
+}
+
 
 /* Modules ================= */
 
 .container__toplevel {
-    width: 100vw;
     height: 100%;
     display: flex;
 }
@@ -217,7 +231,7 @@ a[data-info="go-edit-user"] {
 
 .block {
     /* a bland block */
-    padding: 5rem;
+    padding: 5rem 1rem;
 }
 
 .block__nested {
@@ -333,13 +347,22 @@ li:last-child .btn {
 .block__2_modules {
     padding: 3rem 4rem;
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+    /* grid-template-columns: repeat(autofit, 2,1fr); */
+    /* grid-template-rows: repeat(autofit, 2, 300px); */
+
+    gap: 2rem;
+}
+
+.block__2_modules.Main {
     grid-template-columns: repeat(2,1fr);
     gap: 2rem;
 }
 
-.blokc__2_modules.Main {
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
+.block__2_modules .block {
+    display: flex;
+    align-items: center;
 }
 
 .block__2_modules .container__img {
@@ -395,6 +418,7 @@ li:last-child .btn {
 .container__form_inline {
     display: flex;
     align-items: center;
+    overflow-x: hidden;
 }
 
 /*todos page ============================*/
@@ -427,6 +451,7 @@ li:last-child .btn {
     width: 60%;
     height: auto;
     align-self: right;
+    overflow: hidden;
 }
 
 .frame__avatar.Personal {
@@ -440,6 +465,7 @@ li:last-child .btn {
 }
 
 .container__form_inline .form {
+    margin-top: 2rem;
     padding-left: 2rem;
     border-left: 1px solid var(--color-top);
 }
@@ -464,4 +490,191 @@ input[name='todoItem'] {
     display: flex;
     flex-direction: column;
     max-width: 40rem;
+}
+
+
+
+/* MEDIA QUERIES ====================================== */
+@media screen and (max-width: 1142px){
+
+    .nav__greeting > .subtitle,
+    .nav__greeting > .subtitle a {
+        font-size: 1.6rem;
+    }
+    .nav__main {
+        display: none;
+    }
+    /* except for Main and Home landings */
+    .nav__main.front {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hide__mobile {
+        display: initial;
+    }
+
+    /* still hide this */
+    #burgerInput {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    #burgerMenu:hover {
+        cursor: pointer;
+    }
+
+    #burgerMenu { 
+        /* label wrapper */
+        width: 2rem;
+        height: 2rem;
+        display: block;
+
+        font-size: 2rem;
+        font-family: var(--font-standout);
+        letter-spacing: 0.2em;
+
+        position: fixed;
+        top: 3.45rem;
+        right: 8rem;
+    }
+
+    .nav__mobile {
+        position: fixed;
+        top: -100vh;
+        right: 0;
+        min-width: fit-content;
+
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--color-invert);
+        color: rgb(var(--color-darkest));
+
+        opacity: 0;
+        transition: all 0.5s ease-in 0s;
+    }
+
+    /* show on click */
+    #burgerInput:checked + #burgerMenu > .nav__mobile {
+        /* visibility:visible;*/
+        opacity: 1; 
+        top: 9rem;
+        z-index: 1;
+   }
+
+    .nav__mobile_item {
+        padding: 2rem;
+        width: 100%;
+    }
+
+    .nav__mobile_item:is(:hover, :focus) {
+        background: var(--color-mid-ground);
+        color: rgb(var(--color-light));
+    }
+}
+
+@media screen and (max-width: 940px){
+    .container__toplevel {
+        justify-content: center;
+    }
+
+    .container__toplevel.Personal {
+        margin-top: 0;
+    }
+
+    .container__toplevel.container__list {
+        padding-top: 0;
+    }
+
+    .block__list {
+        display: flex;
+        flex-direction: column;
+    }
+    .block__nested {
+        max-width: 100%;
+    }
+    .block__announce {
+        padding: 0 4rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .block__announce p {
+        padding: 0 3rem;
+        text-align: center;
+    }
+
+    .container__form_inline .container__img {
+        width: 70%;
+    }
+
+    .container__form_inline .form {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 786px){
+    .nav__greeting {
+        display: none;
+    }
+    .block {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .block__announce {
+        padding: 0;
+    }
+
+    :not(.container__img, .frame__avatar) > img {
+        max-width: 100%;
+        height: auto;
+    }
+    .container__form_inline .container__img {
+        display: none;
+    }
+
+    .container__form_inline .form {
+        border: none;
+        align-items: center;
+        text-align: center;
+    }
+    .fieldset__inline_form > input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container__form_inline .form label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todoItem {
+        line-height: 2rem;
+    }
+    .btn.del {
+        display: block;
+    }
+    .list__ofItems {
+        padding: 1rem;
+    }
+
+    .container__toplevel.header {
+        flex-direction: column;
+    }
+    .section__feat {
+        width: 100%;
+    }
+    .block__2_modules {
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+    .label__img {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

@@ -26,6 +26,19 @@
                 <a href="#showUpdateForm" data-info="go-edit-user" class="subtitle">&middot; Edit your info</a> 
             </div>
         </div>
+
+        <input type="checkbox" id="burgerInput" class="hide__mobile">
+        <label id="burgerMenu" for="burgerInput" class="hide__mobile">
+            Menu 
+            <nav class="nav__mobile">
+                <a href="#list" class="nav__mobile_item">Jump to List</a>
+                <a href="/members" class="nav__mobile_item">Members Area</a>
+                <a href="/main" class="nav__mobile_item">Home</a>
+                <a href="/logout" class="nav__mobile_item">Log out</a>
+            </nav>
+        </label>
+		<div class="overlay"></div>
+
         <ul class="nav__main">
             <li class="nav__main_item">
                 <a href="#list">Jump to List</a>
@@ -47,7 +60,7 @@
         </div>
     </div>
     <section id="list" class="container__toplevel container__list">
-        <div class="block">
+        <div class="block block__list">
             <div class="block block__nested">
                 <% if (left !== 1) { %>
                     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
@@ -59,8 +72,7 @@
             <% todos.forEach( el => { %>
                 <li class="todoItem" data-id="<%=el._id%>">
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                    <button type="button">Edit todo</button>
-                    <span class='del'> Delete </span>
+                    <span class="del btn"> Delete </span>
                 </li>
             <% }) %>    
                 <li>
@@ -96,33 +108,24 @@
     </div>
 
     <section class="container__toplevel block__accent">
-        <div class="block">
-            <span>Placeholder- PROFILE edit option, upload img option in link from nav</span>
-            <span>Autogenerate img for user? could randomize from small selection for now.</span>
-            <span>Placeholder- TODO edit option, may include img upload option later</span>
-            <span>How go home w/o 'logout'? special logged-in home called '/main'?</span>
-            <p>todosController.updateUser - need to have a listener on form to remove default behavior and client-side JS to send as PUT not POST.</p>
-            <span>Nothing is responsive yet</span>
-            <ol>
-                <li>Route - /todos/updateProfile</li>
-                <li>method .updateUser should send back a success or error message</li>
-                <li>expose it in a placeholder area under the form</li>
-            </ol>
+        <div class="block invert">
+            <h2>A special announcement here!</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus ullam, dolores, rerum voluptates sapiente modi ipsa unde possimus ex reiciendis fuga repellat laborum ea atque! Accusantium illo dolorem commodi mollitia.</p>
         </div>
 
     </section>
 
     <div id="showUpdateForm" class="container__toplevel Intro container__form_inline">
-        <img src="../478-1000x200.jpg" alt="">
+        <div class="container__img">
+            <img src="../478-1000x200.jpg" alt="">
+        </div>
         <form id="updateUser" action="/updateProfile" method="put" class="form" enctype="multipart/form-data">
-            
             <h2 class="subtitle">Update user information</h2>
-            <label>New username:
-                <input type="text" name="userName" placeholder=<%= `${user.userName}` %> 
-            </label>
-            <fieldset>
+            <label for="newUserName">New username:</label>
+                <input type="text" id="newUserName" name="userName" placeholder=<%=`${user.userName}` %>
+            <fieldset class="fieldset__inline_form">
                 <legend class="label__upload_img">
-                    Replace profile image
+                    Replace profile image:
                 </legend>
                 <input type="file" id="profilePic" name="profileImg" accept="image/*" value = "">
             </fieldset>
