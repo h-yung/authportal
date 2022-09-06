@@ -40,6 +40,6 @@ Rather than a "productivity" app, even as more functionality is built out, this 
 - POST reqs with current setup appear to automatically include user id.
 
 **Styling**
-- Vanilla CSS, because I find it easier to explore visual directions this way. If I could do this again from the beginning or had a strict deadline, it would 1) not be in ejs 2) include a first pass using a framework. While there is a lot of freedom with vanilla CSS, naming schema and styles can quickly become unmanageable.
+- Vanilla CSS, because I find it easier to explore visual directions this way. If I could do this again from the beginning or had a strict deadline, it would 1) not be in ejs 2) include a first pass using a framework. While there is a lot of freedom with vanilla CSS, using a formal naming conventions would make this more manageable.
 - `input[type="file"]` is fairly resistant to custom styling and none of the existing workarounds are working as desired.
 - Note to self: Stop retroactively designing the mobile view... it would be great to maintain the spacious visual approach onscreen as cutting down on it defeats the purpose (although the hypothetical user could be using different features more often if browsing on mobile vs. desktop or tablet).
