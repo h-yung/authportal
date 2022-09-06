@@ -17,18 +17,23 @@ Vanilla CSS, because I find it easier to explore visual directions this way.
 - Customized "homepage" so that a logged-in user is not treated as logged out when returning to the home page.
 - User can upload an image of their choice for an avatar (shown in personal and members area) or else a default user image is shown.
 
-## Optimizations
-- Build out the User profile editing functionality (currently placeholder in Dashboard area).
-- Finish writing and testing out the time-to-completion field in the task schema. 
-- Build out members-only area.
+## Optimizations / On deck
+- Build out members-only area features - task details, tagging of other users, and recommendations options.
    - Allow for bylines with tasks, tagging other users to join a task, searching through lists, and/or exporting.
    - Decide whether to connect to additional APIs and how it might complement the goal of the app.*
-- Make responsive with media queries.
+- Build out the User profile editing functionality (currently placeholder in Dashboard area).
+- Finish writing and testing out the time-to-completion field in the task schema. 
+- Design:
+   - Continue to improve the mobile experience.
+   - Fix dark mode issues.
 - Replace placeholder copy. 
-- Permit user to upload their own avatar of choice, with image format and dimension recommendations. Part of the information editing form.
-- Fix dark mode.
 
 ## Learnings
+**Design decisions**
+- Rather than let users edit their to-dos, this app will prioritize the satisfaction of crossing things out on a list. Users can currently mark items incomplete again but timestamps will track completion only. 
+- Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
+  - User-generated content will remain text/copy focused in general, which also preserves the overall aesthetic.
+
 **Functionality**
 - EJS handles "undefined" differently than expected. Current workaround is to provide a default value for required variables from the controller but there seems to be [alternatives writable in the views/ejs](https://stackoverflow.com/questions/7289916/how-would-you-check-for-undefined-property-in-ejs-for-node-js) as well. It feels a bit painful after being able to build reusable components with React, but this setup with SSR and ejs neatly sidesteps potential CORS issues during development.
 - POST reqs with current setup appear to automatically include user id.
