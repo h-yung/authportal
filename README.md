@@ -10,8 +10,6 @@ Functionality and styling both WIP. Built over a baseline [todo app](https://git
 **Tech used**:
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, express-fileupload (img management)
 
-Vanilla CSS, because I find it easier to explore visual directions this way. 
-
 ## Approach / design decisions
 Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
   - User-generated content will remain text/copy focused in general, which also preserves the overall aesthetic.
@@ -41,5 +39,6 @@ Rather than a "productivity" app, even as more functionality is built out, this 
 - POST reqs with current setup appear to automatically include user id.
 
 **Styling**
+- Vanilla CSS, because I find it easier to explore visual directions this way. If I could do this again from the beginning or had a strict deadline, it would 1) not be in ejs 2) include a first pass using a framework.
 - `input[type="file"]` is fairly resistant to custom styling and none of the existing workarounds are working as desired.
 - Note to self: Stop retroactively designing the mobile view... it would be great to maintain the spacious visual approach onscreen as cutting down on it defeats the purpose (although the hypothetical user could be using different features more often if browsing on mobile vs. desktop or tablet).
