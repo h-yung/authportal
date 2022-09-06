@@ -8,6 +8,7 @@ Functionality and styling both WIP. Built over a baseline [todo app](https://git
 **Tech used**:
 Node.js + Express back end, MongoDB with Mongoose for database and ODM, Passport for authorization, and additional middleware including express-fileupload for image handling.
 
+**Demo screens:**
 ![dash_desk](https://user-images.githubusercontent.com/102257735/188673917-76ea74a9-a3b7-4822-89ed-f800bac8451b.jpg)
 
 
