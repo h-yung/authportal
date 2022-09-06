@@ -28,7 +28,7 @@ Vanilla CSS, because I find it easier to explore visual directions this way.
    - Fix dark mode issues.
 - Replace placeholder copy. 
 
-## Learnings
+## Learnings and approach
 **Design decisions**
 - Rather than let users edit their to-dos, this app will prioritize the satisfaction of crossing things out on a list. Users can currently mark items incomplete again but timestamps will track completion only. 
 - Rather than a "productivity" app, even as more functionality is built out, this will tend towards more of an "idle app" focused on a narrow feature set.
