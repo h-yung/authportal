@@ -1,3 +1,4 @@
+## Idle Tasks App
 
 An app that makes task management and completion a less stressful, more rewarding, and more social activity. 
 Uses authentication to create members-only area (under construction), and a personal dashboard/list, while providing an informative landing page for newcomers/potential members. 
