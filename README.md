@@ -20,7 +20,7 @@ Rather than a "productivity" app, even as more functionality is built out, this 
 ## Current features
 - Highlights completed tasks marked shareable to public by members.
 - Provides clean and consistent navigation customized based on current view in the app.
-- Customized "homepage" so that a logged-in user is not treated as logged out when returning to the home page.
+- Customized "homepage" so that a logged-in user is not treated as logged out when returning to the home page. This would be better to implement with a redirect as logged in users may still hit the original landing page.
 - User can upload an image of their choice for an avatar (shown in personal and members area) or else a default user image is shown.
 
 ## Optimizations / On deck
