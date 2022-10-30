@@ -5,7 +5,7 @@ const metadata = require('../helpers/metadata')
 module.exports = {
     getIndex: async (req,res)=>{
         try {
-            const publicTodos = await Todo.find({publicShare:true}).sort([['createdAt', -1]]);
+            const publicTodos = await Todo.find({publicShare:true}).sort([['createdAt', -1]]).limit( 5 );
             const totalDone = await Todo.countDocuments({completed: true});
             const publicDoneDos = await Todo.find({publicShare:true, completed: true})
 

@@ -234,6 +234,10 @@ a[data-info="go-edit-user"] {
     padding: 5rem 1rem;
 }
 
+.block.foot {
+    padding-left: 5%;
+}
+
 .block__nested {
     max-width: 30%;
 }

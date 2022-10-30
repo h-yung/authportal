@@ -68,6 +68,7 @@ const metadata = require('../helpers/metadata')
       pageinfo: metadata
       // title: `Create Account on ${metadata.title}`
     })
+
   }
   
   exports.postSignup = async (req, res, next) => {
@@ -81,6 +82,8 @@ const metadata = require('../helpers/metadata')
       return res.redirect('../signup')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+    
+    console.log(`req.body.email is ${req.body.email}`)
 
     let profilePic;
     if (req.files) {
