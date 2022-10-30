@@ -28,17 +28,25 @@ module.exports = {
     ,
     getTest: async (req,res)=>{
             try {
+                
+                
+                //get logged-in user
+                const userWeWant = await User.findById(req.user.id); 
+                const profilePic = userWeWant['profileImg']
+
+                //get members
+                const allMembers = await User.find();
+                
+                //get members-viewable todos
                 const viewableTodos = await Todo.find(
                     { $or: [{publicShare:true}, {memberShare:true}]}
                 )
                 const totalCompletedTodos = await Todo.countDocuments({completed: true})
-                const userWeWant = await User.findById(req.user.id); 
-                
-                const profilePic = userWeWant['profileImg']
-                
+
                 res.render('members.ejs',
                 {
                     pageinfo: metadata,
+                    allMembers,
                     memberViewableTodos: viewableTodos,
                     totalDone: totalCompletedTodos,
                     profilePic: profilePic

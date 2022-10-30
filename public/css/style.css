@@ -158,6 +158,13 @@ input[type="checkbox"] {
 }
 
 /* unique assets */
+.avatar__general {
+    /* for non-logged in user small avatars - see .navbar__top .frame__avatar, but more rigid */
+    height: 7rem;
+    width: 7rem;
+    margin-right: 3rem;
+}
+
 .frame__avatar {
     border-radius: 50%;
     overflow: hidden;
@@ -400,6 +407,19 @@ li:last-child .btn {
     margin: 0;
 }
 
+.list__member {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(15rem,30rem));
+}
+
+.listItem__member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.listItem__member span {
+    text-align: start;
+}
 
 
 /*PAGES ============================*/
