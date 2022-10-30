@@ -3,6 +3,9 @@ const User = require('../models/User')
 const metadata = require('../helpers/metadata')
 
 module.exports = {
+    getTest: (req,res)=> {
+        res.render('wip.ejs')
+    },
     getIndex: async (req,res)=>{
         try {
             const publicTodos = await Todo.find({publicShare:true}).sort([['createdAt', -1]]).limit( 5 );

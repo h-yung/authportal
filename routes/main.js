@@ -5,6 +5,7 @@ const homeController = require('../controllers/home')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/', homeController.getIndex)
+router.get('/wip', homeController.getTest)
 router.get('/main', ensureAuth, homeController.getMain)
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)

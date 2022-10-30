@@ -1,0 +1,13 @@
+<div class="container__list">
+    <h1>Current Members</h1>
+    <ul class="list__member">
+        <% allMembers.forEach( member => { %>
+            <li class='listItem__member'>
+                <div class="frame__avatar avatar__general">
+                    <img src="data:image/<%= member.profileImg.contentType%>;base64,<%= member.profileImg.data.toString('base64')%>" class="avatar__general" alt="<%= member.userName %> profile pic">
+                </div>
+                <span><a href="/members/<%= member._id %>"><%= member.userName %></a></span>
+            </li>
+    <% }) %>    
+    </ul>
+</div>

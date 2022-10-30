@@ -1,75 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/css/style.css"> 
-    
-    <title>Members Area &vert; <%= pageinfo.title %></title>
-</head>
-<body>
-    <nav class="navbar__top">
-        <div class="container__toplevel">
-            <a href="/" class="">
-                <div class="frame__avatar">
-                    <% if (profilePic) { %>
-                        <img src="data:image/<%= profilePic.contentType%>;base64,<%= profilePic.data.toString('base64')%>" id="avatar" alt="profile pic">
-                    <% } else { %>
-                        <img src="../411-500x500.jpg" data-note="src is given relative to public folder not the ejs" id="logo" alt="logo">
-                    <% }  %>
-                </div>
-            </a>
-            <div class="nav__greeting">
-                <span class="subtitle">Go home without being treated like you logged out</span>
-            </div>
-        </div>
-
-        <input type="checkbox" id="burgerInput" class="hide__mobile">
-        <label id="burgerMenu" for="burgerInput" class="hide__mobile">
-            Menu 
-            <nav class="nav__mobile">
-                <a href="/todos" class="nav__mobile_item">Dashboard</a>
-                <a href="/main" class="nav__mobile_item">Home</a>
-                <a href="/logout" class="nav__mobile_item">Log out</a>
-            </nav>
-        </label>
-		<div class="overlay"></div>
-
-        <ul class="nav__main">
-            <li class="nav__main_item">
-                <a href="/todos">Dashboard</a>
-            </li>
-            <li class="nav__main_item">
-                <a href="/main">Home</a>
-            </li>
-            <li>
-                <a href="/logout" class="btn btn__tertiary">Log out</a>
-            </li>
-        </ul>
-    </nav>
-
-    <div id="#top" data-info="exists as top anchor" tabindex="-1"></div>
+<%- include('partials/header-members') -%>
     
     <main id="" class="Intro container__toplevel">
+        <%- include('partials/list-members') -%>
         <header class="">
             <div class="container__toplevel Personal">
                 <div class="container__img Personal">
                     <img src="https://picsum.photos/900/500?random=1" alt="">
                 </div>
-            </div>
-            <div class="container__list">
-                <h1>Current Members</h1>
-                <ul class="list__member">
-                    <% allMembers.forEach( member => { %>
-                        <li class='listItem__member'>
-                            <div class="frame__avatar avatar__general">
-                                <img src="data:image/<%= member.profileImg.contentType%>;base64,<%= member.profileImg.data.toString('base64')%>" class="avatar__general" alt="<%= member.userName %> profile pic">
-                            </div>
-                            <span><a href=""><%= member.userName %></a></span>
-                        </li>
-                <% }) %>    
-                </ul>
             </div>
             
             <h2>Is "/" from Members page going Home?</h2>
@@ -100,10 +37,4 @@
             </div>
         </div>
     </main>
-    <div class="container__toplevel">
-        <div class="block foot">
-            <a href="#top" class="btn btn__tertiary">Back to top</a>
-        </div>
-    </div>
-</body>
-</html>
+    <%- include('partials/footer-members') -%>
